@@ -1,6 +1,5 @@
 "use-client";
 
-import Modal from "./Modal";
 
 export default function AddTaskForm({ addTask, updateTask }) {
   return (
@@ -9,11 +8,10 @@ export default function AddTaskForm({ addTask, updateTask }) {
 
       <button
         className="btn btn-sm btn-primary"
-        onClick={() => window.my_modal_3.showModal()}
+        onClick={() => window.my_modal_13.showModal()}
       >
         add task
       </button>
-      <Modal addTask={addTask} updateTask={updateTask} />
     </div>
   );
 }

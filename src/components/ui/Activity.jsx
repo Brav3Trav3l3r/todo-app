@@ -4,9 +4,22 @@ import Tasks from "./Tasks";
 import { useEffect, useState } from "react";
 import { LuPlusCircle } from "react-icons/lu";
 import AddTaskForm from "./AddTaskFrom";
+import Modal from "./Modal";
 
 export default function Activity() {
-  const [tasks, setTasks] = useState(taskslist);
+  const [tasks, setTasks] = useState(() => {
+    if (typeof window !== undefined) {
+      const localtasks = localStorage.getItem("TASKS");
+      if (localtasks) {
+        return JSON.parse(localtasks);
+      }
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("TASKS", JSON.stringify(tasks));
+  }, [tasks]);
 
   const handleToggle = async (value, id) => {
     setTasks(
@@ -31,40 +44,30 @@ export default function Activity() {
     ]);
   };
 
-  const updateTask = (id, value) => {
-    setTasks[
-      tasks.map((task) => {
-        if (task.id === id) return [...tasks, { ...task, title: value }];
-        return task;
-      })
-    ];
-  };
+  // const updateTask = (id, value) => {
+  //   setTasks[
+  //     tasks.map((task) => {
+  //       if (task.id === id) return [...tasks, { ...task, title: value }];
+  //       return task;
+  //     })
+  //   ];
+  // };
 
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id != id));
   };
 
-  useEffect(() => {
-    console.log(tasks);
-  }, [tasks]);
-
   return (
     <div className="activity space-y-4">
-      <AddTaskForm addTask={addTask} updateTask={updateTask} />
+      <Modal key={"newModal"} addTask={addTask} />
+      <AddTaskForm />
       <div className="tasks">
         <Tasks
           tasks={tasks}
           handleToggle={handleToggle}
           deleteTask={deleteTask}
-          updateTask={updateTask}
         />
       </div>
     </div>
   );
 }
-
-const taskslist = [
-  { id: 1, title: "Take Bruno to walk", time: "12:23", completed: true },
-  { id: 2, title: "Water to plants", time: "1:0", completed: false },
-  { id: 3, title: "Wash dishes", time: "2:20", completed: false },
-];

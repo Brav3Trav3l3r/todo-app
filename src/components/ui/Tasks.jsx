@@ -2,7 +2,7 @@
 
 import Task from "./Task";
 
-export default function Tasks({tasks, handleToggle, deleteTask, updateTask}) {
+export default function Tasks({tasks, handleToggle, deleteTask}) {
  
   return (
     <div className="">
@@ -22,7 +22,6 @@ export default function Tasks({tasks, handleToggle, deleteTask, updateTask}) {
               task={task}
               handleToggle={handleToggle}
               deleteTask={deleteTask}
-              updateTask={updateTask}
             />
           ))}
         </tbody>

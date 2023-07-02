@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Modal({ addTask }) {
+export default function Modal({ addTask, b }) {
   const [inputValue, setInputValue] = useState("");
+
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (ref.current) {
+      ref.current.focus();
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     if (inputValue !== "") {
@@ -13,7 +21,7 @@ export default function Modal({ addTask }) {
   };
 
   return (
-    <dialog id="my_modal_3" className="modal">
+    <dialog id="my_modal_13" className="modal">
       <form onSubmit={handleSubmit} method="dialog" className="modal-box">
         <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
           ✕
@@ -22,9 +30,9 @@ export default function Modal({ addTask }) {
 
         <div className="content my-4">
           <input
+            ref={ref}
             id="title"
             type="text"
-            name="title"
             placeholder="Title"
             className="input input-bordered w-full"
             value={inputValue}

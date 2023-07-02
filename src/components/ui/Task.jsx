@@ -1,7 +1,8 @@
 "use client";
 import Modal from "./Modal";
+import UpdateModal from "./UpdateModal";
 
-export default function Task({ task, handleToggle, deleteTask, updateTask }) {
+export default function Task({ task, handleToggle, deleteTask }) {
   return (
     <tr>
       <th>
@@ -30,12 +31,6 @@ export default function Task({ task, handleToggle, deleteTask, updateTask }) {
             className="btn btn-error btn-xs"
           >
             Delete
-          </button>
-          <button
-            onClick={() => window.my_modal_3.showModal()}
-            className="btn btn-warning btn-xs"
-          >
-            update
           </button>
         </div>
       </th>
