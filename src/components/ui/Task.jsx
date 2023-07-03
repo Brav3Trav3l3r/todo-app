@@ -1,6 +1,8 @@
 "use client";
+import { useEffect } from "react";
 import Modal from "./Modal";
 import UpdateModal from "./UpdateModal";
+import Moment from "react-moment";
 
 export default function Task({ task, handleToggle, deleteTask }) {
   return (
@@ -23,7 +25,10 @@ export default function Task({ task, handleToggle, deleteTask }) {
         </div>
       </td>
 
-      <td>{task.time}</td>
+      <td>
+        <Moment unix>{task.time}</Moment>
+        {/* {task.time} */}
+      </td>
       <th className="">
         <div className="buttons flex gap-2 justify-end">
           <button
