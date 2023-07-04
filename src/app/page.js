@@ -49,15 +49,6 @@ export default function Home() {
     ]);
   };
 
-  // const updateTask = (id, value) => {
-  //   setTasks[
-  //     tasks.map((task) => {
-  //       if (task.id === id) return [...tasks, { ...task, title: value }];
-  //       return task;
-  //     })
-  //   ];
-  // };
-
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id != id));
   };

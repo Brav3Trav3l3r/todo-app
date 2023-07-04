@@ -18,7 +18,7 @@ export default function Tasks({tasks, handleToggle, deleteTask}) {
         <tbody>
           {tasks?.map((task) => (
             <Task
-              key={task.id}
+              key={task?.id}
               task={task}
               handleToggle={handleToggle}
               deleteTask={deleteTask}
