@@ -5,20 +5,6 @@ import { useEffect, useRef, useState } from "react";
 export default function Modal({ addTask, b }) {
   const [inputValue, setInputValue] = useState("");
 
-  const myRef = useRef();
-
-  const focus = () =>{
-    myRef.current.focus();
-  }
-
-  // useEffect(() => {
-  //   if (myRef.current) {
-  //     myRef.current.focus();
-  //   }
-
-  //   return myRef.current.blur();
-  // }, []);
-
   const handleSubmit = (e) => {
     if (inputValue !== "") {
       addTask(inputValue);
@@ -36,7 +22,6 @@ export default function Modal({ addTask, b }) {
 
         <div className="content my-4">
           <input
-            ref={myRef}
             id="title"
             type="text"
             placeholder="Title"
