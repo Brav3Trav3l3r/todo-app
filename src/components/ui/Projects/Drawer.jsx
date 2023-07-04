@@ -1,10 +1,12 @@
+'use client'
+
 import { LuX } from "react-icons/lu";
 import { useState } from "react";
 
 export default function Drawer({ project, updateProject }) {
   const [data, setData] = useState({
-    title: project.title,
-    description: project.description,
+    title: project?.title,
+    description: project?.description,
   });
 
   const handleSubmit = (e) => {

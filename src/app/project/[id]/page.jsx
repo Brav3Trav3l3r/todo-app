@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { produce } from "immer";
 import Details from "@/components/ui/Projects/Detail";
-import Tasks from "@/components/ui/Projects/ProjectTasks";
+import ProjectTasks from "@/components/ui/Projects/ProjectTasks";
 import Drawer from "@/components/ui/Projects/Drawer";
 
 export default function App({ params }) {
@@ -90,7 +90,7 @@ export default function App({ params }) {
             Edit project
           </label>
           {/* task */}
-          <Tasks
+          <ProjectTasks
             project={project}
             handleChildToggle={handleChildToggle}
             handleToggle={handleToggle}

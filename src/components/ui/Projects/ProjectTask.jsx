@@ -4,7 +4,7 @@ import { Disclosure } from "@headlessui/react";
 import { useState } from "react";
 import { LuListTree } from "react-icons/lu";
 
-export default function Task({
+export default function ProjectTask({
   t,
   handleChildToggle,
   handleToggle,

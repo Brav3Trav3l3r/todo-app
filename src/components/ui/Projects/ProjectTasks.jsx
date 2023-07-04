@@ -1,13 +1,13 @@
-import Task from "./ProjectTask";
+import ProjectTask from "./ProjectTask";
 
-export default function Tasks({ project, handleChildToggle, handleToggle, addChildTask }) {
+export default function ProjectTasks({ project, handleChildToggle, handleToggle, addChildTask }) {
   return (
     <div className="tasks max-w-3xl space-y-4">
       <h1 className="font-bold text-lg md:text-xl">Tasks</h1>
       <div className="tasklist space-y-4">
-        {project.tasks?.map((t) => (
+        {project?.tasks?.map((t) => (
           <div key={t.id} className="">
-            <Task
+            <ProjectTask
               t={t}
               handleChildToggle={handleChildToggle}
               handleToggle={handleToggle}
