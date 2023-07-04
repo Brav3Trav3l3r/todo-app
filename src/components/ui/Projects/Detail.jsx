@@ -1,6 +1,5 @@
 import { LuCalendarDays } from "react-icons/lu";
 
-
 export default function Details({ project }) {
   return (
     <div className="headings space-y-4">

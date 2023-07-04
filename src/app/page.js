@@ -3,17 +3,22 @@
 import Activity from "@/components/ui/Activity";
 import Projects from "@/components/ui/Projects";
 import Stats from "@/components/ui/Stats";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [tasks, setTasks] = useState(() => {
-    const localtasks = localStorage.getItem("TASKS");
-    if (localtasks) {
-      console.log("local");
-      return JSON.parse(localtasks);
+    if (typeof window !== "undefined") {
+      console.log("You are on the browser");
+      const localtasks = localStorage.getItem("TASKS");
+      if (localtasks) {
+        console.log("local");
+        return JSON.parse(localtasks);
+      }
+      return [];
+    } else {
+      console.log("You are on the server");
+      // 👉️ can't use localStorage
     }
-    return [];
   });
 
   useEffect(() => {

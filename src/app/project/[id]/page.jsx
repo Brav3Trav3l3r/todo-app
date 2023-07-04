@@ -1,19 +1,24 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
-import { useImmer } from "use-immer";
-import { LuMoreHorizontal, LuCalendarDays, LuX } from "react-icons/lu";
 import { produce } from "immer";
 import Details from "@/components/ui/Projects/Detail";
-import Tasks from "@/components/ui/Projects/Tasks";
+import Tasks from "@/components/ui/Projects/ProjectTasks";
 import Drawer from "@/components/ui/Projects/Drawer";
 
 export default function App({ params }) {
   const [project, setProject] = useState(() => {
-    const localtasks = localStorage.getItem("PROJECT");
-    if (localtasks) {
-      return JSON.parse(localtasks);
+    if (typeof window !== "undefined") {
+      console.log("You are on the browser");
+      // 👉️ can use localStorage here
+      const localtasks = localStorage.getItem("PROJECT");
+      if (localtasks) {
+        return JSON.parse(localtasks);
+      }
+      return projectDetail;
+    } else {
+      console.log("You are on the server");
+      // 👉️ can't use localStorage
     }
-    return projectDetail;
   });
 
   useEffect(() => {
@@ -69,7 +74,7 @@ export default function App({ params }) {
         draft.description = data.description;
       })
     );
-    alert('Updated sucessfully')
+    alert("Updated sucessfully");
   }, []);
 
   return (

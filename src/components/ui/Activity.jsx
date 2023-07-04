@@ -1,8 +1,6 @@
 "use client";
 
 import Tasks from "./Tasks";
-import { useEffect, useState } from "react";
-import { LuPlusCircle } from "react-icons/lu";
 import AddTaskForm from "./AddTaskFrom";
 import Modal from "./Modal";
 

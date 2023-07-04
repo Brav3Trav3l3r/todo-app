@@ -1,4 +1,4 @@
-import Task from "./Task";
+import Task from "./ProjectTask";
 
 export default function Tasks({ project, handleChildToggle, handleToggle, addChildTask }) {
   return (

@@ -10,7 +10,11 @@ export default function Project({ project }) {
         {project.badges.map((b) => (
           <div
             className={`badge ${
-              b === "completed" ? "badge-primary" :  b === 'halted' ? 'badge-error' :  "badge-secondary"
+              b === "completed"
+                ? "badge-primary"
+                : b === "halted"
+                ? "badge-error"
+                : "badge-secondary"
             }`}
           >
             {b}
