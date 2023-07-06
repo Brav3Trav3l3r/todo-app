@@ -126,13 +126,15 @@ export default function ProjectPage({ params }) {
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
       <DrawerContent
-        project={project}
-        handleChildToggle={handleChildToggle}
-        addChildTask={addChildTask}
-        handleToggle={handleToggle}
-        addTask={addTask}
-        deleteTask={deleteTask}
-        deleteChildTask={deleteChildTask}
+        {...{
+          project,
+          handleChildToggle,
+          addChildTask,
+          handleToggle,
+          addTask,
+          deleteChildTask,
+          deleteTask,
+        }}
       />
       <Drawer
         project={project}

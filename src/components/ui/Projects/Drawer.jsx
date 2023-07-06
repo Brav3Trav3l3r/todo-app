@@ -35,7 +35,7 @@ export default function Drawer({ project, updateProject, deleteProject }) {
   return (
     <div className="drawer-side ">
       <label htmlFor="my-drawer-4" className="drawer-overlay"></label>
-      <div className="bg-base-200 w-1/3 h-full p-4 space-y-6">
+      <div className="bg-base-200 w-full md:w-1/3 h-full p-4 space-y-6">
         <label
           htmlFor="my-drawer-4"
           className="drawer-button btn btn-sm btn-error"
