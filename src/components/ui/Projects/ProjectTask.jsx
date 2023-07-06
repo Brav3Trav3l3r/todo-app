@@ -21,7 +21,6 @@ export default function ProjectTask({
 
   const handleSubmit = (title, id, e) => {
     e.preventDefault();
-    console.log(title, id);
     addChildTask(title, id);
     setInputVal("");
   };

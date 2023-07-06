@@ -22,7 +22,6 @@ export default function ProjectPage({ params }) {
   const handleToggle = useCallback((value, id) => {
     setProjects(
       produce((draft) => {
-        console.log(draft);
         const task = draft
           .find((p) => p.id === params.id)
           .tasks.find((t) => t.id === id);
@@ -47,7 +46,6 @@ export default function ProjectPage({ params }) {
   }, []);
 
   const addChildTask = useCallback((title, pid) => {
-    console.log(title, pid);
     setProjects(
       produce((draft) => {
         const task = draft
@@ -77,7 +75,6 @@ export default function ProjectPage({ params }) {
   }, []);
 
   const updateProject = useCallback((data) => {
-    console.log(data);
     setProjects(
       produce((draft) => {
         const project = draft.find((p) => p.id === params.id);
@@ -103,7 +100,6 @@ export default function ProjectPage({ params }) {
   }, []);
 
   const deleteTask = useCallback((id) => {
-    console.log(id);
     setProjects(
       produce((draft) => {
         const pro = draft.find((p) => p.id === params.id);

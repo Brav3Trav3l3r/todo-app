@@ -3,7 +3,6 @@
 import { GrRadialSelected, GrRadial } from "react-icons/gr";
 
 export default function TaskStat({ tasks }) {
-  console.log(tasks)
   return (
     <div className="st bg-accent p-4 space-y-4 rounded-lg shadow flex-1">
       <div className="title">

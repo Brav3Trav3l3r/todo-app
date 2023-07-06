@@ -8,6 +8,8 @@ export default function ProjectFilter({ addProject }) {
     if (desc !== "" && title !== "") {
       addProject(title, desc);
     }
+    setDesc("");
+    setTitle("");
   };
 
   return (
