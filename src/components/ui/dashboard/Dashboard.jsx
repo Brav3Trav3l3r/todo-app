@@ -64,7 +64,7 @@ export default function Dashboard() {
         />
       </div>
       <div className="group-one md:w-1/3 ">
-        <Stats tasks={tasks} />
+        <Stats tasks={tasks} projects={projects} />
       </div>
     </div>
   );

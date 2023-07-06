@@ -9,6 +9,7 @@ import DrawerContent from "@/components/ui/Projects/DrawerContent";
 import useStorage from "../../../../utils/useStorage";
 
 export default function ProjectPage({ params }) {
+  const router = useRouter();
   const [projects, setProjects] = useStorage("PROJECTS");
   const [project, setProject] = useState({});
 
@@ -67,7 +68,7 @@ export default function ProjectPage({ params }) {
       produce((draft) => {
         const proTasks = draft
           .find((p) => p.id === params.id)
-          .tasks.find((p) => p.id === tid)
+          .tasks.find((p) => p.id === tid);
 
         const newChild = proTasks.childTasks.filter((ch) => ch.id != id);
         proTasks.childTasks = newChild;
@@ -112,6 +113,15 @@ export default function ProjectPage({ params }) {
     );
   }, []);
 
+  const deleteProject = () => {
+    setProjects(
+      projects.filter((p) => {
+        p.id != params.id;
+      })
+    );
+    router.replace("/");
+  };
+
   return (
     <div className="drawer drawer-end">
       <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
@@ -124,7 +134,11 @@ export default function ProjectPage({ params }) {
         deleteTask={deleteTask}
         deleteChildTask={deleteChildTask}
       />
-      <Drawer project={project} updateProject={updateProject} />
+      <Drawer
+        project={project}
+        updateProject={updateProject}
+        deleteProject={deleteProject}
+      />
     </div>
   );
 }
