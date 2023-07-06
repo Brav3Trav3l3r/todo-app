@@ -2,13 +2,15 @@
 
 import { Disclosure } from "@headlessui/react";
 import { useState } from "react";
-import { LuListTree } from "react-icons/lu";
+import { LuListTree, LuX } from "react-icons/lu";
 
 export default function ProjectTask({
   t,
   handleChildToggle,
   handleToggle,
   addChildTask,
+  deleteTask,
+  deleteChildTask,
 }) {
   const [open, setOpen] = useState(false);
   const [inputVal, setInputVal] = useState("");
@@ -37,10 +39,18 @@ export default function ProjectTask({
           />
           <h1>{t.title}</h1>
         </div>
-        <Disclosure.Button className="g2 btn btn-xs flex gap-2 btn-info items-center">
-          <h1 className="font-bold">{t.childTasks.length}</h1>
-          <LuListTree />
-        </Disclosure.Button>
+        <div className="interacts flex gap-3">
+          <button
+            onClick={() => deleteTask(t.id)}
+            className="btn btn-xs btn-error"
+          >
+            <LuX />
+          </button>
+          <Disclosure.Button className="g2 btn btn-xs flex gap-2 btn-info items-center">
+            <h1 className="font-bold">{t?.childTasks?.length}</h1>
+            <LuListTree />
+          </Disclosure.Button>
+        </div>
       </div>
 
       {/* Disclosure */}
@@ -48,15 +58,25 @@ export default function ProjectTask({
         {t.childTasks?.map((ct) => (
           <div
             key={ct.id}
-            className="ct flex gap-6 rounded-lg p-3 ml-8 bg-accent"
+            className="ct flex gap-6 justify-between rounded-lg p-3 ml-8 bg-accent"
           >
-            <input
-              type="checkbox"
-              checked={ct.completed}
-              className="checkbox"
-              onChange={(e) => handleChildToggle(e.target.checked, ct.id, t.id)}
-            />
-            <h1>{ct.title}</h1>
+            <div className="flex gap-4">
+              <input
+                type="checkbox"
+                checked={ct.completed}
+                className="checkbox"
+                onChange={(e) =>
+                  handleChildToggle(e.target.checked, ct.id, t.id)
+                }
+              />
+              <h1>{ct.title}</h1>
+            </div>
+            <div
+              onClick={() => deleteChildTask(ct.id, t.id)}
+              className="btn btn-xs btn-error"
+            >
+              <LuX />
+            </div>
           </div>
         ))}
 

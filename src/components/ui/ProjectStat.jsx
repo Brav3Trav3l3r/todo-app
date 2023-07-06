@@ -1,6 +1,13 @@
+import { useRef, useState } from "react";
 import { GrRadialSelected, GrRadial } from "react-icons/gr";
 
 export default function ProjectStat() {
+  // const projects = useRef([]);
+
+  // useEffect(() => {
+  //   projects.current = localStorage.getItem("PROJECTS");
+  // }, []);
+
   return (
     <div className="st bg-accent p-4 space-y-4 rounded-lg shadow flex-1">
       <div className="title">

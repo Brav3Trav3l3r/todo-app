@@ -1,6 +1,5 @@
 "use-client";
 
-
 export default function AddTaskForm({ addTask, updateTask }) {
   return (
     <div className=" flex justify-between items-center">

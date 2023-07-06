@@ -1,4 +1,6 @@
+"use client";
 import { LuCalendarDays } from "react-icons/lu";
+import Moment from "react-moment";
 
 export default function Details({ project }) {
   return (
@@ -9,7 +11,9 @@ export default function Details({ project }) {
 
       <div className="calender flex items-center gap-1 opacity-70">
         <LuCalendarDays />
-        <h1 className="text-sm ">{project?.createdAt}</h1>
+        <h1 className="text-sm ">
+          <Moment unix>{project?.createdAt}</Moment>
+        </h1>
       </div>
     </div>
   );

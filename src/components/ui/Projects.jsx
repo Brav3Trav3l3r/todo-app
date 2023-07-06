@@ -1,12 +1,12 @@
 import ProjectFilter from "./ProjectFilter";
 import ProjectsAll from "./ProjectsAll";
 
-export default function Projects() {
+export default function Projects({projects, addProject}) {
   return (
     <>
       <div className="main">
-        <ProjectFilter />
-        <ProjectsAll />
+        <ProjectFilter addProject={addProject}/>
+        <ProjectsAll projects={projects} />
       </div>
     </>
   );
